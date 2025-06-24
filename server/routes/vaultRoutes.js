@@ -7,5 +7,6 @@ router.post('/create', authMiddleware, vaultController.createPassword);
 router.get('/all', authMiddleware, vaultController.getPasswords);
 router.put('/:id', authMiddleware, vaultController.updatePassword);
 router.delete('/:id', authMiddleware, vaultController.deletePassword);
+router.post('/validate-key', authMiddleware, vaultController.validateVaultKey);
 
 module.exports = router

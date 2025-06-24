@@ -1,0 +1,33 @@
+.inputContainer {
+  position: relative;
+}
+
+.inputContainer input {
+  width: 100%;
+  padding: 2.2rem 1.6rem 0.7rem 1.6rem;
+  border: none;
+  border-radius: 999px;
+  background-color: #2b2b2b;
+  color: white;
+  font-size: 1rem;
+  box-sizing: border-box;
+}
+
+.inputContainer label {
+  position: absolute;
+  left: 1.6rem;
+  top: 50%;
+  transform: translateY(-50%);
+  color: gray;
+  font-size: 1rem;
+  pointer-events: none;
+  transition: 0.2s ease all;
+}
+
+.inputContainer input:focus + label,
+.inputContainer input:not(:placeholder-shown) + label {
+  top: 1.2rem;
+  left: 1.6rem;
+  font-size: 0.75rem;
+  color: white;
+}

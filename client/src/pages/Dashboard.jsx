@@ -10,6 +10,10 @@ import VaultEntryList from '../components/VaultEntryList';
 import TagFilterPanel from '../components/TagFilterPanel';
 import VaultExportPanel from '../components/VaultExportPanel';
 
+// import { StarBackground } from "../components";
+import StarBackground from "../components/canvas/StarBackground";
+import Input from "../components/sharable-ui/Input";
+
 const Dashboard = () => {
     const { logout, token, vaultKey, setVaultKey } = useAuth();
     const navigate = useNavigate();
@@ -52,51 +56,61 @@ const Dashboard = () => {
                 Array.isArray(entry.tags) && entry.tags.includes(activeTag)
             );
 
+    
+    const [tempMsg, setTempMsg] = useState(null);
+    const handleInput = (e) => {
+        setTempMsg(e.target.value)
+    }
+
     return (
-        <div>
-            <h2>Dashboard (Protected)</h2>
-            <button onClick={handleLogout}>Logout</button>
+        <div className="parentContainer">
+            <div>
+                <Input type="password" title="Enter your name" value={tempMsg} onChange={handleInput} />
+                <h2>Dashboard (Protected)</h2>
+                <button onClick={handleLogout}>Logout</button>
 
-            {!vaultKey && (
-                <VaultPassphrasePrompt
-                    onKeyDerived={(key) => {
-                        setVaultKey(key);
-                        setPassphrasePrompted(true);
-                    }}
-                    error={passphrasePrompted && !vaultKey}
-                />
-            )}
-
-            {vaultKey && (
-                <>
-                    {/* Modular Add Form */}
-                    <VaultEntryForm vaultKey={vaultKey} onSuccess={fetchVault} />
-
-                    {/* Tag Filtering */}
-                    <TagFilterPanel
-                        allTags={allTags}
-                        activeTag={activeTag}
-                        onTagSelect={(tag) => setActiveTag(tag)}
+                {!vaultKey && (
+                    <VaultPassphrasePrompt
+                        onKeyDerived={(key) => {
+                            setVaultKey(key);
+                            setPassphrasePrompted(true);
+                        }}
+                        error={passphrasePrompted && !vaultKey}
                     />
+                )}
 
-                    {/* Vault Entry Listing */}
-                    <h3>Your Vault Entries</h3>
-                    {message && <p>{message}</p>}
+                {vaultKey && (
+                    <>
+                        {/* Modular Add Form */}
+                        <VaultEntryForm vaultKey={vaultKey} onSuccess={fetchVault} />
 
-                    <VaultEntryList
-                        entries={filteredEntries}
-                        vaultKey={vaultKey}
-                        token={token}
-                        onRefresh={fetchVault}
-                    />
+                        {/* Tag Filtering */}
+                        <TagFilterPanel
+                            allTags={allTags}
+                            activeTag={activeTag}
+                            onTagSelect={(tag) => setActiveTag(tag)}
+                        />
 
-                    {/* Export Buttons */}
-                    <VaultExportPanel
-                        vaultEntries={vaultEntries}
-                        vaultKey={vaultKey}
-                    />
-                </>
-            )}
+                        {/* Vault Entry Listing */}
+                        <h3>Your Vault Entries</h3>
+                        {message && <p>{message}</p>}
+
+                        <VaultEntryList
+                            entries={filteredEntries}
+                            vaultKey={vaultKey}
+                            token={token}
+                            onRefresh={fetchVault}
+                        />
+
+                        {/* Export Buttons */}
+                        <VaultExportPanel
+                            vaultEntries={vaultEntries}
+                            vaultKey={vaultKey}
+                        />
+                    </>
+                )}
+            </div>
+            <StarBackground />
         </div>
     );
 };
