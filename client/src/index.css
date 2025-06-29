@@ -6,6 +6,9 @@
   color-scheme: light dark;
   color: rgba(255, 255, 255, 0.87);
   background-color: #242424;
+  /* background-image: url(./assets/bg.jpg); */
+  /* background-size:cover;
+  background-repeat: no-repeat; */
 }
 
 .glassEffect {
@@ -13,8 +16,8 @@
     position: relative;
     background: rgba(255, 255, 255, 0.08);
     border-radius: 1.5rem;
-    backdrop-filter: blur(23px) saturate(180%);
-    -webkit-backdrop-filter: blur(24px) saturate(180%);
+    backdrop-filter: blur(13px) saturate(180%);
+    -webkit-backdrop-filter: blur(14px) saturate(180%);
     box-shadow: 0 40px 80px rgba(0, 0, 0, 0.35),
         inset 0 1px 1px rgba(255, 255, 255, 0.3),
         inset 0 -1px 1px rgba(0, 0, 0, 0.1);

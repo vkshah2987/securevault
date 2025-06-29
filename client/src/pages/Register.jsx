@@ -52,20 +52,25 @@ const Register = () => {
     }
 
     return (
-        <div className="parentContainer">
+        <div className="parentContainerCenterLayout registrationPage">
             <div className="formContainer glassEffect">
                 <div className="leftPanel">
-
+                    <img src="./src/assets/Tangled.svg" alt="" />
+                    <h2>Secure access to everything, with one master key.</h2>
+                    <p>Sign up to store and manage your most sensitive information securely, all in one vault — accessible only with your unique passphrase.</p>
                 </div>
                 <div className="rightPanel">
-                    <h2>Create Account</h2>
+                    <div>
+                        <h2>Create <br /> your account</h2>
+                        <h4>Already a member? <span>Log in</span></h4>
+                    </div>
                     <form onSubmit={handleSubmit} className="formClass">
                         <div style={{display: "flex", gap: "20px"}}>
                             <Input
                                 customClassName = "customInput"
                                 type="text"
                                 name="firstName"
-                                title="Enter your first name"
+                                title="First name"
                                 value={registrationForm.firstName}
                                 onChange={handleInputChange}
                                 required />
@@ -74,7 +79,7 @@ const Register = () => {
                                 customClassName = "customInput"
                                 type="text"
                                 name="lastName"
-                                title="Enter your last name"
+                                title="Last name"
                                 value={registrationForm.lastName}
                                 onChange={handleInputChange}
                                 required />
@@ -83,7 +88,7 @@ const Register = () => {
                             <Input
                                 type="email"
                                 name="email"
-                                title="Enter your email"
+                                title="E-mail"
                                 value={registrationForm.email}
                                 onChange={handleInputChange}
                                 required />
@@ -92,16 +97,16 @@ const Register = () => {
                             <Input
                                 type="password"
                                 name="password"
-                                title="Enter password"
+                                title="Password"
                                 value={registrationForm.password}
                                 onChange={handleInputChange}
                                 required />
                         </div>
-                        <div>
+                        <div className="TnC">
                             <input type="checkbox" id="TnC" />
                             <label htmlFor="TnC"> Agree Terms and Conditions</label>
                         </div>
-                        <button type="submit">Register</button>
+                        <button className="submitBtn" type="submit">Register</button>
                     </form>
                     <p>{message}</p>
                 </div>

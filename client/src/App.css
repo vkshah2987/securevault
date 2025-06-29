@@ -1,14 +1,28 @@
-*{
+* {
   padding: 0;
   margin: 0;
   box-sizing: border-box;
 }
 
-#root{
+#root {
   height: 100vh;
 }
 
-.parentContainer{
+.starCanvasContainer {
+  position: fixed;
+  top: 0;
+  height: 100%;
+  width: 100%;
+  z-index: 0;
+}
+
+
+/* Start - Common to Login & Signup Page - Start */
+
+.parentContainerCenterLayout{
+  background-size: cover;
+  background-repeat: no-repeat;
+
   height: 100%;
   position: relative;
 
@@ -17,28 +31,107 @@
   align-items: center;
 }
 
-.starCanvasContainer{
-  position: fixed;
-  top: 0;
-  height: 100%;
-  width: 100%;
-  z-index: -1;
-}
-
-.formContainer{
+.formContainer {
   width: 60%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 2;
 }
 
-.formClass{
+.formClass {
   display: flex;
   flex-direction: column;
   gap: 20px;
 }
 
-.customInput{
+.customInput {
   width: 50%;
 }
 
-.leftPanel, .rightPanel{
+.leftPanel,
+.rightPanel {
   width: 50%;
+  padding: 30px;
+}
+
+.leftPanel{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 0 100px;
+  text-align: center;
+
+  img{
+    margin-top: -3vw;
+    width: 100%;
+  }
+}
+
+.rightPanel {
+  margin-bottom: 20px;
+
+  h2 {
+    font-size: 3vw;
+    font-weight: 400;
+  }
+
+  h4 {
+    margin: 10px 0 50px 0;
+    font-weight: 400;
+
+    span {
+      font-weight: 800;
+      letter-spacing: 1px;
+      margin-left: 5px;
+      color: orangered;
+    }
+  }
+
+  .formClass {
+    .TnC {
+      margin: 10px 0 10px 5px;
+      label {
+        margin-left: 5px;
+      }
+    }
+
+    .submitBtn{
+      width: 100%;
+      height: 62px;
+      border-radius: 999px;
+      border: 0;
+      font-size: 18px;
+      letter-spacing: 1px;
+    }
+  }
+}
+
+/* End - Common to Login & Signup Page - End */
+
+
+/* Added background image for registration page */
+.registrationPage {
+  background-image: url(./assets/registration.jpg);
+}
+
+
+/* Added background image and few settings for login page */
+.loginPage{
+  background-image: url(./assets/login.jpg);
+
+  background: linear-gradient(
+    rgba(0, 0, 0, 0.2), 
+    rgba(0, 0, 0, 0.5)
+  ),
+  url(./assets/login.jpg);
+
+  .rightPanel h4 span{
+    color: #415634;
+  }
+
+  form button{
+    margin-top: 25px;
+  }
 }

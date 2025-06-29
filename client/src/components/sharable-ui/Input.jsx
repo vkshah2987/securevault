@@ -13,6 +13,7 @@ const Input = ({
     return (
         <div className={`${styles.inputContainer} ${customClassName}`}>
             <input
+            className='glassEffect'
                 type={type}
                 id={id}
                 name={name}
