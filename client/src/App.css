@@ -16,10 +16,41 @@
   z-index: 0;
 }
 
+.logoContainer{
+  display: flex;
+  align-items: center;
+  gap: 5px;
+
+  img{
+    width: 50px;
+  }
+
+  label{
+    font-weight: 800;
+    font-size: 20px;
+    line-height: 1vw;
+
+    margin-top: 3px;
+  }
+}
+
+.menuBarContainer{
+  display: flex;
+  align-items: center;
+  border-radius: 18px;
+
+  label{
+    margin-left: 10px;
+    font-size: 18px;
+    font-weight: 700;
+    letter-spacing: 1px;
+  }
+}
+
 
 /* Start - Common to Login & Signup Page - Start */
 
-.parentContainerCenterLayout{
+.parentContainerCenterLayout {
   background-size: cover;
   background-repeat: no-repeat;
 
@@ -55,7 +86,7 @@
   padding: 30px;
 }
 
-.leftPanel{
+.leftPanel {
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -63,7 +94,7 @@
   padding: 0 100px;
   text-align: center;
 
-  img{
+  img {
     margin-top: -3vw;
     width: 100%;
   }
@@ -86,18 +117,20 @@
       letter-spacing: 1px;
       margin-left: 5px;
       color: orangered;
+      cursor: pointer;
     }
   }
 
   .formClass {
     .TnC {
       margin: 10px 0 10px 5px;
+
       label {
         margin-left: 5px;
       }
     }
 
-    .submitBtn{
+    .submitBtn {
       width: 100%;
       height: 62px;
       border-radius: 999px;
@@ -118,20 +151,204 @@
 
 
 /* Added background image and few settings for login page */
-.loginPage{
-  background-image: url(./assets/login.jpg);
+.loginPage {
+  /* background-image: url(./assets/login.jpg); */
 
-  background: linear-gradient(
-    rgba(0, 0, 0, 0.2), 
-    rgba(0, 0, 0, 0.5)
-  ),
-  url(./assets/login.jpg);
+  background: linear-gradient(rgba(0, 0, 0, 0.2),
+      rgba(0, 0, 0, 0.5)),
+    url(./assets/login.jpg);
 
-  .rightPanel h4 span{
-    color: #415634;
+  .rightPanel h4 span {
+    color: #8ab96c;
   }
 
-  form button{
+  form button {
     margin-top: 25px;
+  }
+}
+
+
+/* Dashboard styling */
+.dashboardPage {
+  /* background-image: url(./assets/dashboard.jpg); */
+  /* background: linear-gradient(rgba(0, 0, 0, 0.272),
+      rgba(100, 87, 199, 0.288)),
+    url(./assets/dashboard.jpg); */
+
+  background: linear-gradient(rgba(0, 0, 0, 0.2),
+      rgba(0, 0, 0, 0.5)),
+    url(./assets/login.jpg);
+
+  .dashboardContainer {
+    width: 95%;
+    height: 90%;
+
+    z-index: 999;
+
+    display: inherit;
+    justify-content: inherit;
+    align-items: inherit;
+
+    gap: 20px;
+
+    .sidePanel {
+      width: 20%;
+      height: 100%;
+
+      .menuOption{
+        margin-top: 50px;
+        display: flex;
+        flex-direction: column;
+        gap: 15px;
+      }
+    }
+
+    .mainContainer {
+      width: 70%;
+      height: 100%;
+
+      .searchBar{
+        width: 40%;
+        padding: 10px 20px;
+        border-radius: 18px;
+        display: flex;
+        align-items: center;
+        margin-bottom: 58px;
+
+        img{
+          width: 30px;
+        }
+
+        input{
+          width: 100%;
+          background: none;
+          border: none;
+          margin-left: 20px;
+          font-size: 20px;
+          margin-top: 2px;
+
+          &:focus {
+            outline: none;
+            border: none;
+            box-shadow: none;
+          }
+        }
+      }
+
+      .passwordContainer{
+        height: calc(100% - 108px);
+        display: flex;
+        gap: 20px;
+
+        .passwordList{
+          width: 40%;
+          padding: 20px;
+        }
+
+        .passwordView{
+          width: 60%;
+        }
+      }
+    }
+  }
+}
+
+
+/* FilterPanel Styling */
+.filterContainer {
+  width: 100%;
+  border-radius: 18px;
+
+  .filterHead {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: relative;
+
+    div{
+      display: flex;
+      font-size: 18px;
+      font-weight: 700;
+      letter-spacing: 1px;
+
+      img{
+        margin-right: 10px;
+      }
+    }
+
+    &::before{
+      position: absolute;
+      bottom: -20px;
+      content: '';
+      width: 100%;
+      height: 1px;
+      background-color: rgb(158, 158, 158);
+    }
+  }
+
+  .filterOptions{
+    margin: 40px 10px 0 10px;
+    display: grid;
+    /* gap: 10px; */
+
+    .filterBtn{
+      width: 100%;
+      border: none;
+      text-align: left;
+      font-size: 20px;
+      background: transparent;
+      position: relative;
+
+      padding: 15px 10px 15px 40px;
+
+      &::before{
+        content: '';
+        position: absolute;
+        width: 10px;
+        height: 10px;
+        border-radius: 999px;
+        /* background-color: red; */
+        transform: translateY(55%);
+        margin-left: -20px;
+
+        background: #646464;
+        box-shadow: 
+          inset 4px 4px 8px rgba(0, 0, 0, 0.6),
+          inset -4px -4px 8px rgba(255, 255, 255, 0.05);
+      }
+
+      &.withDot::before{
+        background: #ffffff;
+        box-shadow: none
+      }
+    }
+  }
+}
+
+.btnClicked{
+  /* background: #121212; */
+  color: white;
+  padding: 2rem;
+  border-radius: 16px;
+  border: 1px solid transparent;
+  background-image:
+    linear-gradient(#121212, #121212),
+    linear-gradient(145deg, rgba(255, 255, 255, 0.05), rgba(0, 0, 0, 0.5));
+  background-origin: border-box;
+  background-clip: padding-box, border-box;
+  box-shadow:
+    inset 2px 2px 4px rgba(255, 255, 255, 0.05),
+    inset -2px -2px 4px rgba(0, 0, 0, 0.4);
+}
+
+
+
+/* VaultEntryList Styling */
+.vaultViewContainer{
+  .rowOne{
+    display: flex;
+    img{
+      z-index: 999;
+    }
   }
 }

@@ -42,30 +42,13 @@ const Login = () => {
         setLoginForm({...loginForm, [name]:value})
     }
 
+    const navigateToRegistration = () => {
+        navigate('/register');
+    }
+
     return (
         <div className="parentContainerCenterLayout loginPage">
             {/* {expired && <p style={{ color: 'red' }}>Session expired. Please login again.</p>} */}
-            {/* <h2>Login</h2>
-            <form onSubmit={ handleLogin }>
-                <input
-                    type="email"
-                    placeholder="Email"
-                    value={email}
-                    onChange={ (e) => setEmail(e.target.value) }
-                    required
-                />
-                <br />
-                <input
-                    type="password"
-                    placeholder="password"
-                    value={password}
-                    onChange={ (e) => setPassword(e.target.value) }
-                    required
-                />
-                <br />
-                <button type="submit">Login</button>
-            </form>
-            <p>{message}</p> */}
             <div className="formContainer glassEffect">
                 <div className="leftPanel">
                     <img src="./src/assets/Helix.svg" alt="" />
@@ -75,7 +58,7 @@ const Login = () => {
                 <div className="rightPanel">
                     <div>
                         <h2>Log In <br /> to your account</h2>
-                        <h4>New here? <span>Sign up</span></h4>
+                        <h4>New here? <span onClick={navigateToRegistration}>Sign up</span></h4>
                     </div>
                     <form onSubmit={ handleLogin } className="formClass">
                         <div>

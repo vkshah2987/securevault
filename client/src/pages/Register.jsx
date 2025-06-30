@@ -51,6 +51,10 @@ const Register = () => {
         }
     }
 
+    const navigateToLogin = () => {
+        navigate('/');
+    }
+
     return (
         <div className="parentContainerCenterLayout registrationPage">
             <div className="formContainer glassEffect">
@@ -62,7 +66,7 @@ const Register = () => {
                 <div className="rightPanel">
                     <div>
                         <h2>Create <br /> your account</h2>
-                        <h4>Already a member? <span>Log in</span></h4>
+                        <h4>Already a member? <span onClick={navigateToLogin}>Log in</span></h4>
                     </div>
                     <form onSubmit={handleSubmit} className="formClass">
                         <div style={{display: "flex", gap: "20px"}}>
