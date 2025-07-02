@@ -8,12 +8,13 @@ const Input = ({
     title,
     value,
     onChange,
-    customClassName = ''
+    customClassName = '',
+    inputClassName = ''
 }) => {
     return (
         <div className={`${styles.inputContainer} ${customClassName}`}>
             <input
-            className='glassEffect'
+                className={`glassEffect ${inputClassName}`}
                 type={type}
                 id={id}
                 name={name}

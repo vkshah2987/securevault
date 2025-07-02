@@ -59,3 +59,13 @@
     pointer-events: none;
     z-index: 1;
 }
+
+.hide-scrollbar {
+  overflow: auto; /* or scroll */
+  scrollbar-width: none;       /* Firefox */
+  -ms-overflow-style: none;    /* IE 10+ */
+}
+
+.hide-scrollbar::-webkit-scrollbar {
+  display: none;               /* Chrome, Safari, Edge */
+}

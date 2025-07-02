@@ -141,7 +141,7 @@ const Dashboard = () => {
                         </div>
                     </div>
                     <div className="passwordContainer ">
-                        <div className="passwordList ">
+                        <div className="passwordList hide-scrollbar">
                             <VaultEntryList
                                 entries={filteredEntries}
                                 vaultKey={vaultKey}

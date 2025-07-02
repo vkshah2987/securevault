@@ -2,7 +2,8 @@
 import React, { useState } from 'react';
 import axios from '../utils/axiosInstance';
 import { decryptPassword, encryptPassword } from '../utils/encryption';
-import { div } from 'framer-motion/client';
+
+import Input from "./sharable-ui/Input";
 
 const VaultEntryList = ({ entries, vaultKey, token, type = 'list', onRefresh }) => {
   const [editId, setEditId] = useState(null);
@@ -62,7 +63,7 @@ const VaultEntryList = ({ entries, vaultKey, token, type = 'list', onRefresh }) 
 
   return (
     <>
-      {type === 'list' && <ul>
+      {type === 'listNot' && <ul>
         {entries.length === 0 ? (
           <p>No entries found.</p>
         ) : (
@@ -114,10 +115,71 @@ const VaultEntryList = ({ entries, vaultKey, token, type = 'list', onRefresh }) 
       </ul>}
 
       {
+        type === 'list' && (
+          <div className='listContainer'>
+            {
+              entries.length === 0 ? (<div>No Record Exist</div>) : 
+              (
+                entries.map(item => {
+                  return (
+                    <div className='listItem'>
+                      <img src="https://images.ctfassets.net/4cd45et68cgf/Rx83JoRDMkYNlMC9MKzcB/2b14d5a59fc3937afd3f03191e19502d/Netflix-Symbol.png?w=700&h=456" alt="" />
+                      <div>
+                        <h4>{item.title}</h4>
+                        <p>{item.username}</p>
+                      </div>
+                    </div>
+                  )
+                })
+              )
+            }
+          </div>
+        )
+      }
+
+      {
         type === 'view' && (
           <div className='vaultViewContainer'>
-            <div className='rowOne'>
+            <div className='rowOne glassEffect'>
               <img src="https://images.ctfassets.net/4cd45et68cgf/Rx83JoRDMkYNlMC9MKzcB/2b14d5a59fc3937afd3f03191e19502d/Netflix-Symbol.png?w=700&h=456" alt="" />
+              <div className='rowOneData'>
+                <label htmlFor="">Netflix</label>
+                <button><img src='src/assets/search.svg'></img>Edit</button>
+              </div>
+            </div>
+            <div className='rowTwo glassEffect'>
+              <Input
+                customClassName = 'marginleft-zero'
+                inputClassName='disableEdit'
+                type="text"
+                name="website"
+                title="Website"
+                value={'www.google.com'}
+              />
+              <Input
+                customClassName = 'marginleft-zero'
+                inputClassName='disableEdit'
+                type="text"
+                name="username"
+                title="Username"
+                value={'vkumar90sai'}
+              />
+              <Input
+                customClassName = 'marginleft-zero'
+                inputClassName='disableEdit'
+                type="password"
+                name="password"
+                title="Password"
+                value={'www.google.com'}
+              />
+              <Input
+              customClassName = 'marginleft-zero'
+                inputClassName='disableEdit'
+                type="text"
+                name="category"
+                title="Category"
+                value={'work'}
+              />
             </div>
           </div>
         )
